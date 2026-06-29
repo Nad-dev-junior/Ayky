@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le : ven. 12 juin 2026 à 02:14
+-- Généré le : sam. 13 juin 2026 à 01:54
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -38,7 +38,9 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Pâtisserie '),
-(2, 'Boulangerie');
+(2, 'Boulangerie'),
+(3, 'Fast Food'),
+(4, 'Cantine');
 
 -- --------------------------------------------------------
 
@@ -58,7 +60,9 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`id`, `name`, `country_id`) VALUES
 (1, 'King Chocolat', 1),
-(2, 'Saveurs d\'ici', 1);
+(2, 'Saveurs d\'ici', 1),
+(4, 'Tazoudeh', 1),
+(5, 'Dady', 2);
 
 -- --------------------------------------------------------
 
@@ -76,8 +80,10 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`id`, `name`) VALUES
-(1, 'France'),
-(2, 'Belgique');
+(1, 'Niamey'),
+(2, 'Maradi'),
+(3, 'Agadez'),
+(4, 'Dosso');
 
 -- --------------------------------------------------------
 
@@ -99,7 +105,9 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`id`, `title`, `description`, `salary`, `country_id`, `company_id`) VALUES
-(1, 'Apprentie pâtissier', ' Préparation des crèmes et divers taches.', 38000, 1, 1);
+(1, 'Apprentie pâtissier', ' Préparation des crèmes et divers taches.', 38000, 1, 1),
+(2, 'Service Traiteur', 'A la recherche d\'un serveur rigoureux.', 35000, 3, 4),
+(3, 'Cuisinier', 'A la recherche d\'un cuisinier professionnel pour la préparation du déjeuner aux enfants.', 45000, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -112,7 +120,7 @@ CREATE TABLE `job_application` (
   `cover_letter` text NOT NULL,
   `user_id` int(11) NOT NULL,
   `job_id` int(11) NOT NULL,
-  `created-at` datetime NOT NULL
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -206,25 +214,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `job`
 --
 ALTER TABLE `job`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `users`
