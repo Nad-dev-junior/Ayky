@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0 ;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+  --rose-principal:#AD2060;
+  --rose-hover: #7A1645;
+  --bordeaux-titre: #5C1030; 
+  --text: #3A2E33; 
+  --fond-clair: rgba(255, 255, 255, 0.4);
+}
+ /*  MobilFirst */
+body{
+    font-family: "Barlow", sans-serif;
+    background-image: url(../img/body-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+    
+
+.navbar  {
+    background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px); /* effet verre dépoli, très tendance */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+.navbar .navlinks ul{
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.navlinks ul li a {
+  color:  var(--rose-principal);
+  font-size: 1.04em;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navlinks ul li a:hover{
+    color: var(--rose-hover);
+}
+ 
+.logo{
+    font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  color:rgb(173, 32, 96);
+  text-shadow: 2px 2px 4px rgba(173, 32, 96, 0.5);
+  font-size: 2em;
+  margin: 5px 0;
+}
+
+
+/* menu beurgueur */
+
+.burger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor:pointer ;
+    padding: 0;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(173, 32, 96);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* afficher le menu si span active */
+
+.navbar .navlinks ul.active{
+    display: flex;
+}
+
+/* style de l'option X pour refermer le menu */
+
+.burger span:nth-child(1) {
+    transform-origin: left center;
+}
+
+.burger span:nth-child(3) {
+    transform-origin: left center;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Carousel */
+
+.carousel{
+    position: relative;
+    width: 100%;
+    overflow: hidden;  /*cache les slides hors cadre*/
+    /* height: 220px; même hauteur peu importe l'écran */
+    height: 35vh; /* 35% de la hauteur d'écran, ajuste le chiffre à ton goût */
+    /*aspect-ratio: 16 / 10;  garde une hauteur cohérente sur mobile*/
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    /* pas de largeur fixe: chaque slide fait 100% du carousel */
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    /* object-fit: cover; remplit le cadre sans déformer l'image */
+}
+
+.carousel-dots{
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color:  rgba(255, 255, 255, 0.6) ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active{
+    background-color: var(--rose-principal);
+}
+
+/* media queries */
+
+@media (min-width: 768px) {
+    .carousel{
+        height: 80vh;
+    }
+}
