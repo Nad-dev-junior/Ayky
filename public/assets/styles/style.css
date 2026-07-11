@@ -21,8 +21,9 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 
-}
-    
+}   
+
+
 
 .navbar  {
     background-color: rgba(255, 255, 255, 0.5);
@@ -119,10 +120,9 @@ body{
 .carousel{
     position: relative;
     width: 100%;
-    overflow: hidden;  /*cache les slides hors cadre*/
-    /* height: 220px; même hauteur peu importe l'écran */
-    height: 35vh; /* 35% de la hauteur d'écran, ajuste le chiffre à ton goût */
-    /*aspect-ratio: 16 / 10;  garde une hauteur cohérente sur mobile*/
+    overflow: hidden;  
+    aspect-ratio: 16 / 10; /* garde une hauteur cohérente sur mobile */
+    
 }
 
 .carousel-track {
@@ -135,7 +135,9 @@ body{
 .carousel-slide {
     min-width: 100%;
     height: 100%;
-    /* object-fit: cover; remplit le cadre sans déformer l'image */
+    object-fit: cover;
+    object-position: center;
+      /*remplit le cadre sans déformer l'image */
 }
 
 .carousel-dots{
@@ -146,7 +148,9 @@ body{
     display: flex;
     gap: 8px;
 }
-
+.line-continue{
+    position: absolute;
+}
 .dot{
     width: 8px;
     height: 8px;
@@ -160,10 +164,93 @@ body{
     background-color: var(--rose-principal);
 }
 
+/* recruitment banner */
+
+.recruitement-banner{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.35) ;
+    backdrop-filter: blur(8px);
+    padding: 8px 0;
+    z-index: 10;
+}
+
+.recruitement-track {
+   display: 
+   flex;
+   width: max-content;
+   animation: scroll-infinite 15s linear infinite;
+}
+
+.recruitement-track span{
+    color: white;
+    font-weight: 700;
+    font-size: 1.1em;
+    white-space: nowrap;
+    padding: 0 40px;
+}
+
+@keyframes scroll-infinite {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* -50% car le contenu est dupliqué en 2 groupes égaux */
+    }
+}
+
 /* media queries */
 
 @media (min-width: 768px) {
     .carousel{
-        height: 80vh;
+        aspect-ratio:  21 / 9; /* plus large/panoramique sur grand écran */
     }
 }
+
+/* section presentation */
+
+.presentation-container{
+    padding: 30px 15px;
+}
+
+.presentation-container h1 {
+    color:var(--bordeaux-titre);
+    margin-bottom: 20px;
+}
+
+.presentation-content {
+    display:flex ;
+    flex-direction: column; /* empilé sur mobile : image au-dessus, texte en dessous  */
+    gap: 20px;
+}
+
+.presentation-images{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 /3;
+    overflow: hidden;
+   border-radius: 8px;
+}
+
+.fade-slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* toutes cachées par defaut */
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-slide.active{
+    opacity: 1; /* seule l'image active est visible */
+}
+
+.presentation-text{
+    width: 100% ;
+}
+

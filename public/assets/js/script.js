@@ -21,7 +21,7 @@ function goToSlide(index){
 
    dots.forEach(dot => dot.classList.remove('active'));
    dots[index].classList.add('active');
-   dots[index].classList.add('active');
+   // dots[index].classList.add('active');
 }
 
 // clic sur les points
@@ -40,7 +40,7 @@ setInterval(() =>{
    goToSlide(nextIndex);
 }, 4000);
 
-// swipe tactile (mobile)
+// swipe tactile (mobile) , glisser le doigt pour changer d'image
 
 let startX = 0 ;
 
@@ -51,5 +51,16 @@ track.addEventListener('touchstart', (e) =>{
       goToSlide((currentIndex + 1)% slides.length); // swipe gauche->suivant
    }else if (diff < -50){
       goToSlide((currentIndex - 1 + slides.length)% slides.length); //swipe droite -> précédent
-   }
+   } 
 })
+
+// presantation de ayky
+
+const fadeSlides = document.querySelectorAll(' .fade-slide') ;
+let currentFade = 0 ;
+
+setInterval(()=>{
+   fadeSlides[currentFade].classList.remove('active');
+   currentFade =(currentFade + 1) % fadeSlides.length;
+   fadeSlides[currentFade].classList.add('active');
+} , 3000) ; // change d'image toutes les 3 secondes 
