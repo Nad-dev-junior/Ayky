@@ -13,6 +13,10 @@ class PageController  extends Controller{
        $this->render("pages/about");
     }
     
+    public function jobs(): void{
+       $this->render("pages/jobs");
+    }
+    
     
 
 }
