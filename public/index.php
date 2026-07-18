@@ -1,6 +1,7 @@
 <?php 
 // charger l'autoload;
 require_once __DIR__ . "/../vendor/autoload.php" ;
+require_once __DIR__ . "/../helpers/helper.php" ;
 
 
 define('APP_ROOT' , dirname(__DIR__));

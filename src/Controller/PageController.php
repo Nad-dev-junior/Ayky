@@ -9,8 +9,8 @@ class PageController  extends Controller{
        $this->render("pages/home");
     }
 
-    public function about(): void{
-       $this->render("pages/about");
+    public function contact(): void{
+       $this->render("pages/contact");
     }
     
     public function jobs(): void{

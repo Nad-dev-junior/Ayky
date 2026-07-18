@@ -9,6 +9,7 @@ class Router
 {
 
   private $routes;
+  public static $currentPath;
   public function __construct()
   {
     $this->routes = require_once APP_ROOT . "/configs/routes.php";
@@ -19,6 +20,7 @@ class Router
 
     try {
       $path =  $this->normalizePath($uri);
+      self::$currentPath = $path;
       if (!isset($this->routes[$path])) {
         throw new Exception("La route n'existe pas ");
       }
@@ -36,12 +38,19 @@ class Router
       }
 
       $controller->$action();
+     
     } catch (Exception $e) {
       $error = new ErrorController();
      $error->showErrors($e->getMessage());
     }
   }
-
+ public static function activeRoute(string $path): string{
+        if(self::$currentPath === $path){
+             return "active"  ;
+        }else{
+          return " " ;
+        }
+      }
   public static  function normalizePath(string $uri)
   {
     $path =  parse_url($uri, PHP_URL_PATH);

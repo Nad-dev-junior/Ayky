@@ -6,12 +6,13 @@
 -- Généré le : sam. 13 juin 2026 à 01:54
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
-
+ CREATE DATABASE IF NOT EXISTS ayky CHARACTER SET utf8mb4;
+ USE ayky ;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
+ 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -275,3 +276,39 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- premiére modification de la bdd 14/07/2026
+
+ALTER TABLE `job_application`
+ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `job_application`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE  `job_catgeory`
+ADD PRIMARY KEY( `id`,`name`); 
+
+Use ayky;
+ALTER TABLE `job_catgeory`
+ADD PRIMARY KEY (`job_id`, `category_id`);
+
+use ayky ;
+INSERT INTO country (id , name) VALUES ( 1, 'Niamey'),( 2, 'Maradi'), ( 3, 'Agadez'), (4, 'Dosso');
+
+USE ayky;
+ALTER TABLE `job_catgeory` ADD INDEX `idx_category_id` (`category_id`);
+
+
+-- 2. Contrainte UNIQUE sur l'email
+ALTER TABLE `users` ADD UNIQUE KEY `uq_email` (`email`);
+
+-- 3. Colonnes manquantes sur job (pour correspondre au front déjà codé)
+ALTER TABLE `job`
+  ADD COLUMN `employment_type` VARCHAR(20) NOT NULL DEFAULT 'CDI' AFTER `salary`,
+  ADD COLUMN `is_urgent` TINYINT(1) NOT NULL DEFAULT 0 AFTER `employment_type`,
+  ADD COLUMN `status` VARCHAR(20) NOT NULL DEFAULT 'active' AFTER `is_urgent`,
+  ADD COLUMN `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `status`;
+
+-- 4. Logo entreprise
+ALTER TABLE `company` ADD COLUMN `logo_path` VARCHAR(255) DEFAULT NULL;

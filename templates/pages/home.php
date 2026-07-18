@@ -1,37 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+require_once  APP_ROOT . "/templates/pages/header.php";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayky</title>
-  <link rel="stylesheet" href="/assets/styles/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+// use App\Entity\Category;
 
-<body>
-  <nav class="navbar">
-    <h1 class="logo">Ayky</h1>
-    <button class="burger" aria-label="Ouvrir le menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <div class="navlinks">
-      <ul>
-        <li class=""><a href="#">Accueil</a></li>
-        <li class=""><a href="#">Les Offres</a></li>
-        <li class=""><a href="#">Contact</a></li>
-      </ul>
-    </div>
-
-  </nav>
-  <header>
-    <div class="carousel">
+?>
+<header>
+<div class="carousel">
       <div class="carousel-track">
-        <img src="assets/img/girl-boul.jpg" class="carousel-slide " alt="boulangére">
-        <img src="assets/img/man-patisse.jpg" class="carousel-slide" alt="patissier">
-        <img src="assets/img/girl-patisse.jpg" class="carousel-slide" alt="patissiére">
+        <img src="<?= assets('img/girl-boul.jpg') ?>" class="carousel-slide " alt="boulangére">
+        <img src="<?= assets('img/man-patisse.jpg') ?>" class="carousel-slide" alt="patissier">
+        <img src="<?= assets('img/girl-patisse.jpg') ?>" class="carousel-slide" alt="patissiére">
       </div>
       <div class="recruitement-banner">
         <div class="recruitement-track">
@@ -54,18 +32,18 @@
   <main>
     <section class="presentation">
       <div class="presentation-container">
-        <h1>Ayky Pour Vous!</h1>
         <div class="presentation-content">
           <div class="presentation-text">
+            <h1>Ayky Pour Vous!</h1>
             <p>Passionné(e) par la pâtisserie ou la boulangerie ? Avec Ayky, trouvez le métier de vos rêves dans la restauration. Les entreprises de Niamey recrutent activement en ce moment — c'est le bon moment pour postuler.</p>
             <p>N'hésitez pas à envoyer votre candidature dès aujourd'hui.</p>
           </div>
           <div class="presentation-images">
-            <img src="assets/img/Brochettes.jpg" alt="brochettes de Bœuf" class="fade-slide active">
-            <img src="assets/img/Karlee Purkiss.jpg" alt="Karlee Purkiss" class="fade-slide">
-            <img src="assets/img/sp-patisserie1.jpg" alt="sp-patisserie1" class="fade-slide">
-            <img src="assets/img/sp-patisserie2.jpg" alt="sp-patisserie2" class="fade-slide">
-            <img src="assets/img/pizza.jpg" alt="pizza" class="fade-slide">
+            <img src="<?= assets('img/brochettes.jpg') ?>" alt="brochettes de Bœuf" class="fade-slide active">
+            <img src="<?= assets('img/Karlee Purkiss.jpg') ?>" alt="Karlee Purkiss" class="fade-slide">
+            <img src="<?= assets('img/sp-patisserie1.jpg') ?>" alt="sp-patisserie1" class="fade-slide">
+            <img src="<?= assets('img/sp-patisserie2.jpg') ?>" alt="sp-patisserie2" class="fade-slide">
+            <img src="<?= assets('img/pizza.jpg') ?>" alt="pizza" class="fade-slide">
           </div>
 
         </div>
@@ -78,22 +56,22 @@
         <div class="slide-entreprises">
           <div class="entreprise-track">
             <div class="entreprise-card">
-              <img src="assets/img/logo-entreprise1.png" alt="logo-entreprise1" class="entreprise-img " >
+              <img src="<?= assets('img/logo-entreprise1.png') ?>" alt="logo-entreprise1" class="entreprise-img " >
             </div>
             <div class="entreprise-card">
-               <img src="assets/img/logo-entreprise2.png" alt="logo-entreprise2" class="entreprise-img " >
+               <img src="<?= assets('img/logo-entreprise2.png') ?>" alt="logo-entreprise2" class="entreprise-img " >
             </div>
             <div class="entreprise-card">
-              <img src="assets/img/logo-entreprise3.png" alt="logo-entreprise3" class="entreprise-img " >
+              <img src="<?= assets('img/logo-entreprise3.png') ?>" alt="logo-entreprise3" class="entreprise-img " >
             </div>
             <div class="entreprise-card">
-              <img src="assets/img/logo-entreprise4.png" alt="logo-entreprise4" class="entreprise-img " >
+              <img src="<?= assets('img/logo-entreprise4.png') ?>" alt="logo-entreprise4" class="entreprise-img " >
             </div>
             <div class="entreprise-card">
-               <img src="assets/img/logo-entreprise5.png" alt="logo-entreprise5" class="entreprise-img " >
+               <img src="<?= assets('img/logo-entreprise5.png') ?>" alt="logo-entreprise5" class="entreprise-img " >
             </div>
             <div class="entreprise-card">
-               <img src="assets/img/logo-entreprise6.png" alt="logo-entreprise6" class="entreprise-img " >
+               <img src="<?= assets('img/logo-entreprise6.png') ?>" alt="logo-entreprise6" class="entreprise-img " >
             </div>
           </div>
      
@@ -101,29 +79,11 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="footer-container">
-      <p class="footer-logo">Ayky</p>
-      <p class="footer-text">Trouver votre métier de reve dans la restauration à Niamey</p>
+  <?php
+require_once  APP_ROOT . "/templates/pages/footer.php";
 
-      <div class="footer-socials">
-        <a href="#" aria-label="Facebook" class="social-link">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" aria-label="Instagram" class="social-link">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" aria-label="Twitter / X" class="social-link">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" aria-label="whatsApp" class="social-link">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-      <p class="footer-copy">© 2026 Ayky -Tous droits réservés</p>
-    </div>
-  </footer>
-  <script src="/assets/js/script.js"></script>
+?>
+  <script src="<?= assets('js/script.js') ?>"></script>
 </body>
 
 </html>

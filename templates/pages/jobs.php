@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+require_once  APP_ROOT . "/templates/pages/header.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayky</title>
-    <link rel="stylesheet" href="/assets/styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+use App\Entity\Category;
 
-<body>
-    <nav class="navbar">
-        <h1 class="logo">Ayky</h1>
-        <button class="burger" aria-label="Ouvrir le menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="navlinks">
-            <ul>
-                <li class=""><a href="#">Accueil</a></li>
-                <li class=""><a href="#">Les Offres</a></li>
-                <li class=""><a href="#">Contact</a></li>
-            </ul>
-        </div>
-
-    </nav>
+?>
     <main>
         <section class="offres-hero">
             <div class="offres-hero-container">
@@ -37,7 +15,7 @@
 
                     <select aria-label="Ville">
                         <option value="">Toutes les villes</option>
-                        <option value="">Niamey</option>
+                        <option value="niamey">Niamey</option>
                     </select>
                     <button type="submit">Rechercher</button>
                 </form>
@@ -54,7 +32,7 @@
             <article class="offre-card">
                 <span class="offre-padge">Urgent</span>
                 <div class="offre-header">
-                    <img src="assets/img/logo-entreprise1.png" alt="Jessica Kitchen" class="offre-logo">
+                    <img src="/assets/img/logo-entreprise1.png" alt="Jessica Kitchen" class="offre-logo">
                     <div>
                         <h3 itemprop="title">Patissier(ére)</h3>
                         <p class="offre-entreprise" itemprop="hiringOrganization">Jessica Kitchen</p>
@@ -69,29 +47,49 @@
                 <a href="#" class="offre-cta">Voir l'offre <i class="fas fa-arrow-right"></i></a>
             </article>
         </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-container">
-            <p class="footer-logo">Ayky</p>
-            <p class="footer-text">Trouver votre métier de reve dans la restauration à Niamey</p>
-
-            <div class="footer-socials">
-                <a href="#" aria-label="Facebook" class="social-link">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" aria-label="Instagram" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" aria-label="Twitter / X" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" aria-label="whatsApp" class="social-link">
-                    <i class="fab fa-whatsapp"></i>
+        <section class="offres-reassurance">
+            <div class="reassurance-item">
+                <i class="fas fa-bolt"></i>
+                <h3>Candidature rapide</h3>
+                <p>Postuler en 2 minutes via whatsApp</p>
+            </div>
+            <div class="reassurance-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Entreprises vérifiées</h3>
+                <p>Tous nos partenaires sont validées par Ayky</p>
+            </div>
+            <div class="reassurance-item">
+                <i class="fas fa-bell"></i>
+                <h3>Alertes personnalisées</h3>
+                <p>Recevez les offres qui vous correspondent</p>
+            </div>
+        </section>
+        <section class="offres-alert">
+            <div class="offres-allert-container">
+                <h2>Ne manquez aucune offre</h2>
+                <p>Recevez les nouvelles opportunités directement sur whatsApp</p>
+                <a href="#" class="alert-cta">
+                    <i class="fab fa-whatsapp"></i> S'inscrire aux alertes
                 </a>
             </div>
-            <p class="footer-copy">© 2026 Ayky -Tous droits réservés</p>
-        </div>
-    </footer>
+        </section>
+        <section class="offres-faq">
+            <h2>Questions fréquentes</h2>
+            <details class="faq-item">
+                <summary>Comment postuler à une offre sur Ayky ?</summary>
+                <p>Cliquez sur "Voir l'offre", puis envoyez votre candidature</p>
+            </details>
+            <details class="faq-item">
+                <summary>Les offres sont-elles gratuites pour les candidats ?</summary>
+                <p>Oui, Ayky est entiérement gratuite pour les personnes en recherche d'emploi. </p>
+            </details>
+        </section>
+    </main>
+    <?php
+require_once  APP_ROOT . "/templates/pages/footer.php";
+
+
+?>
     <script src="/assets/js/script.js"></script>
 </body>
 

@@ -38,4 +38,11 @@ class Database {
             return self::$instance ;
         
     }
+
+    public function getPdo(): PDO {
+      return  $this->pdo ;
+    }
+
+    // 19/07/2026
+    // afficher les jobs
 }
