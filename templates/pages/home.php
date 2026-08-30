@@ -1,8 +1,6 @@
 <?php
 require_once  APP_ROOT . "/templates/pages/header.php";
 
-// use App\Entity\Category;
-
 ?>
 <header>
 <div class="carousel">

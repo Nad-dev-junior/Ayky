@@ -1,5 +1,7 @@
 <?php
 require_once  APP_ROOT . "/templates/pages/header.php";
+Use Ayky\Routing\Router ;
+
 
 use App\Entity\Category;
 
@@ -29,23 +31,29 @@ use App\Entity\Category;
             <button class="filter-chip">Serveur</button>
         </div>
         <section class="offres-grid" itemscope itemtype="https://schema.org/JobPosting">
+               <?php 
+                foreach($jobs as $job) :
+                 ?>
             <article class="offre-card">
-                <span class="offre-padge">Urgent</span>
+            <span class="offre-badge">Urgent</span>
                 <div class="offre-header">
                     <img src="/assets/img/logo-entreprise1.png" alt="Jessica Kitchen" class="offre-logo">
                     <div>
-                        <h3 itemprop="title">Patissier(ére)</h3>
-                        <p class="offre-entreprise" itemprop="hiringOrganization">Jessica Kitchen</p>
+                        <h3 itemprop="title"><?= $job->getTitle(); ?></h3>
+                        <p class="offre-entreprise" itemprop="hiringOrganization"><?= $job->getCompanyName() ?></p>
                     </div>
                 </div>
                 <div class="offre-meta">
-                    <span><i class="fas fa-map-marker-alt"></i> <span itemprop="jobLocation"></span></span>
+                    <span><i class="fas fa-map-marker-alt"></i> <span itemprop="jobLocation"><?= $job->getCountryName() ?></span></span>
                     <span><i class="fas fa-clock"></i> <span itemprop="employmentType">CDI</span></span>
+                    <span><i class="fas fa-money-bill-wave"></i> <?= $job->getSalary(); ?> FCFA</span>
                 </div>
-                <p class="offre-description" itemprop="description"> Nous recherchons un(e) pâtissier(ère) passionné(e) pour rejoindre notre équipe...
+                <p class="offre-description" itemprop="description"><?= $job->getDescription() ?>
                 </p>
-                <a href="#" class="offre-cta">Voir l'offre <i class="fas fa-arrow-right"></i></a>
-            </article>
+                <a href="<?= '/jobs/'. $job->getId() ?>" class="offre-cta">Voir l'offre <i class="fas fa-arrow-right"></i></a>
+         
+            </article>  
+             <?php endforeach; ?>
         </section>
         <section class="offres-reassurance">
             <div class="reassurance-item">

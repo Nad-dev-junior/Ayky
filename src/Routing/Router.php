@@ -2,6 +2,7 @@
 
 namespace Ayky\Routing;
  use Ayky\Controller\ErrorController;
+ use Ayky\Controller\PageController ;
 
 use Exception;
 
@@ -21,6 +22,13 @@ class Router
     try {
       $path =  $this->normalizePath($uri);
       self::$currentPath = $path;
+
+      $morceaux = explode("/" , $path);
+      if($morceaux[1] === "jobs" && is_numeric($morceaux[2])){
+        $pageController = new  PageController();
+        $pageController->jobDetail($morceaux[2]);
+        return ;
+      }
       if (!isset($this->routes[$path])) {
         throw new Exception("La route n'existe pas ");
       }
